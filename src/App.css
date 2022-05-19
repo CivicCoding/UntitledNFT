@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+body{
+    color: #040404;
+    display: flex;
+    flex-direction: column;
+    flex:auto;
+    /*background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(55,55,250,1) 0%, rgba(48,75,251,1) 28%, rgba(255,254,239,1) 80%);*/
+    background-color: rgb(21,69,153);
+    /*NOTE: 字体可能会有版权问题*/
+    font-family: SansSerif, sans-serif,Helvetica;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sm-content{
+    z-index: 100;
+    width: 70px;
+    position: fixed;
+    display: block;
+    top:50%;
+    right:0%;
+    transform: translateY(-50%);
+    background-color: rgba(106, 157, 254, 0);
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#sm-background{
+    background-color: rgb(229,202,185);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#weibo, #twitter,#discord{
+    margin: 10px;
+    width: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.navBar{
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    /*background-color: rgb(229,202,185);*/
+    background-size: contain;
+    width:100%;
+    height: 100px;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#logo{
+    display: inline-flex;
+    background-color: rgb(229,202,185);
+    width: 160px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
 }
+
+#nav{
+    margin-right: 5px;
+}
+
+.ul{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.btn-click{
+    margin: 0 5px 0 5px;
+    list-style: none;
+    background-color: rgba(233, 232, 232, 0.2);
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+.btn-click:hover{
+    background-color: rgba(233, 232, 232, 0.5);
+    cursor: pointer;
+}
+
+.content{
+    width: 100%;
+    height: 100vh;
+}
+
+#textBackground{
+    width: inherit;
+    height: inherit;
+    /*background: rgba(178, 143, 206, 0.95);*/
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+}
+
+#showImg{
+    max-width: 100%;
+}
+
+#circleImg{
+    border-radius: 50%;
+    width: 15%;
+}
+
+#text{
+    color: rgb(229,202,185);
+    font-size: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top:50%;
+    left:60%;
+    text-align: center;
+    transform:  translateY(-50%);
+}
+
+#wt-Container > #wt-Background{
+    width: 100%;
+    height: 100vh;
+}
+
+#wt-Background{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(21,69,153);
+    background-image: radial-gradient(closest-side, rgba(229,202,185, 1), rgba(229,202,185, 0)),
+    radial-gradient(closest-side, rgb(55, 101, 177), rgba(21,69,153, 0)),
+    radial-gradient(closest-side, rgb(209, 191, 191), rgba(145,128,129, 0)),
+    radial-gradient(closest-side, rgb(219, 99, 0), rgba(170, 142, 245, 0)),
+    radial-gradient(closest-side, rgba(248, 192, 147, 1), rgba(248, 192, 147, 0));
+    background-size:
+            130vmax 130vmax,
+            80vmax 80vmax,
+            90vmax 90vmax,
+            110vmax 110vmax,
+            90vmax 90vmax;
+    background-position:
+            -80vmax -80vmax,
+            60vmax -30vmax,
+            10vmax 10vmax,
+            -30vmax -10vmax,
+            50vmax 50vmax;
+    background-repeat: no-repeat;
+    animation: 7s movement linear infinite;
+}
+
+#wt-Background::after{
+    content: '';
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /*backdrop-filter: blur(10px);*/
+    /*-webkit-backdrop-filter: blur(10px);*/
+}
+
+@keyframes movement {
+    0%,100%{
+        background-size:
+                130vmax 130vmax,
+                80vmax 80vmax,
+                90vmax 90vmax,
+                110vmax 110vmax,
+                90vmax 90vmax;
+        background-position:
+                -80vmax -80vmax,
+                60vmax -30vmax,
+                10vmax 10vmax,
+                -30vmax -10vmax,
+                50vmax 50vmax;
+    }
+    25% {
+        background-size:
+                100vmax 100vmax,
+                90vmax 90vmax,
+                100vmax 100vmax,
+                90vmax 90vmax,
+                60vmax 60vmax;
+        background-position:
+                -60vmax -90vmax,
+                50vmax -40vmax,
+                0vmax -20vmax,
+                -40vmax -20vmax,
+                40vmax 60vmax;
+    }
+    50% {
+        background-size:
+                80vmax 80vmax,
+                110vmax 110vmax,
+                80vmax 80vmax,
+                60vmax 60vmax,
+                80vmax 80vmax;
+        background-position:
+                -50vmax -70vmax,
+                40vmax -30vmax,
+                10vmax 0vmax,
+                20vmax 10vmax,
+                30vmax 70vmax;
+    }
+    75% {
+        background-size:
+                90vmax 90vmax,
+                90vmax 90vmax,
+                100vmax 100vmax,
+                90vmax 90vmax,
+                70vmax 70vmax;
+        background-position:
+                -50vmax -40vmax,
+                50vmax -30vmax,
+                20vmax 0vmax,
+                -10vmax 10vmax,
+                40vmax 60vmax;
+    }
+}
+
+
+
+#wt-title, #rm-title{
+    font-size: 40px;
+}
+
+#wt-Container{
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+}
+
+#rm-container > #rm-background{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#rm-background{
+    /*background: rgba(164, 84, 249, 0.95);*/
+}
+
+#rm-img{
+    margin-top: 10px;
+    width: 50%;
+}
+
+#end-container, #end-background{
+    width: 100%;
+    height: 30vh;
+}
+
+
+
+
