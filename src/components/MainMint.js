@@ -10,7 +10,6 @@ const MainMint = ({ accounts, setAccount}) => {
 
     async function handleMint(){
         if(window.ethereum){
-            //TODO: 添加判断publicsaleison，添加判断contract owner
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
             const contract = new ethers.Contract(UntitledNFTContractAddress,UntitledNFT.abi,signer);

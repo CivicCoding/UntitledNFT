@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {BigNumber, ethers} from "ethers";
 import UntitledNFt from "../UntitledNFT.json"
 const UntitledNFTAddress = "0xa1d5e7b17A0B06e3eCB155020f7d3D26C63aB8CE";
-const DEBUG = true;
+const DEBUG = false;
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 const contract = new ethers.Contract(UntitledNFTAddress,UntitledNFt.abi,signer);
@@ -14,7 +14,7 @@ const Manage = ({accounts}) => {
     const managerAddress = useState("0x0b8615e756c5a839f035cb1be0d6e120caea5e72");
     const isManager = accounts[0] === managerAddress[0];
     if(DEBUG) console.log("isManager:",isManager);
-    if(DEBUG) console.log("managerAddress:",managerAddress[0])
+    if(DEBUG) console.log("managerAddress:",managerAddress[0]);
 
     async function setPublicSaleTime(time){
         publicSaleStartTime = Math.round(new Date(time)/1000);
@@ -53,12 +53,6 @@ const Manage = ({accounts}) => {
             .catch(err => console.log("Error:",err));
     }
 
-    const countDownTime = () => {
-        let saleTime = Date.parse(publicSaleStartTime);
-        console.log(saleTime);
-
-    }
-    countDownTime();
     return (
         <div className="Manage">
             {isManager ? (
@@ -69,6 +63,7 @@ const Manage = ({accounts}) => {
                         <button className="btn-click" onClick={handlePublicSaleTimeAndKey}>确定</button>
                     </div>
                 </div>
+
             ):(
                 <div>NOT MANAGER</div>
             ) }

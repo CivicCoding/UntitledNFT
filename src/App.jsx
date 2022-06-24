@@ -1,21 +1,19 @@
+/* eslint-disable react/react-in-jsx-scope */
 
 import './App.css';
-import background from "./img/background.jpeg"
 import weibo from "./img/weibo.png"
 import discord from "./img/discord.png"
 import twitter from "./img/twitter.png"
 import buddha from "./img/Buddha.JPG"
 
-import {ethers, utils} from "ethers";
 import MainMint from "./components/MainMint";
 import NavBar from "./components/NavBar";
 import {useState} from "react";
 import Manage from "./components/Manage";
-
-const DEBUG = true;
+import CountDown from "./components/CountDown";
 
 function App() {
-    const [accounts, setAccounts] = useState([])
+    const [accounts, setAccounts] = useState([]);
 
     return (
     <div className="App">
@@ -36,6 +34,7 @@ function App() {
         <div className="content">
             <div id="textBackground">
                 <div id="text">
+                    <CountDown></CountDown>
                     <Manage accounts={accounts}></Manage>
                     <MainMint accounts={accounts} setAccount={setAccounts}></MainMint>
                 </div>
